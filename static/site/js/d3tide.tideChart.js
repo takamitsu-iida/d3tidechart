@@ -35,6 +35,9 @@
     // カスタムイベント
     var dispatch = d3.dispatch('next', 'prev');
 
+    // ダミーデータ
+    var dummy = ['dummy'];
+
     // 外枠の大きさ(初期値)
     var width = 800;
     var height = 300;
@@ -120,7 +123,7 @@
 
         // 外枠になるレイヤを描画する
         // ボタンはこのレイヤに置く
-        var baseLayerAll = container.selectAll('.' + CLASS_BASE_LAYER).data(['dummy']);
+        var baseLayerAll = container.selectAll('.' + CLASS_BASE_LAYER).data(dummy);
         baseLayer = baseLayerAll
           .enter()
           .append('g')
@@ -130,7 +133,7 @@
           .attr('height', height);
 
         // チャートを描画するレイヤを追加する
-        var chartLayerAll = baseLayer.selectAll('.' + CLASS_CHART_LAYER).data(['dummy']);
+        var chartLayerAll = baseLayer.selectAll('.' + CLASS_CHART_LAYER).data(dummy);
         chartLayer = chartLayerAll
           .enter()
           .append('g')
@@ -186,7 +189,7 @@
     // レイヤにチャートを描画する
     function drawChart() {
       // x軸を追加する
-      var xAxisAll = chartLayer.selectAll('.tidechart-xaxis').data(['dummy']);
+      var xAxisAll = chartLayer.selectAll('.tidechart-xaxis').data(dummy);
       xAxisAll
         .enter()
         .append('g')
@@ -196,7 +199,7 @@
         .call(xaxis);
 
       // X軸のラベルを追加
-      var xAxisLabelAll = chartLayer.selectAll('.tidechart-xaxis-label').data(['dummy']);
+      var xAxisLabelAll = chartLayer.selectAll('.tidechart-xaxis-label').data(dummy);
       xAxisLabelAll
         .enter()
         .append('text')
@@ -208,7 +211,7 @@
         .text(xAxisText);
 
       // y軸を追加する。クラス名はCSSと合わせる
-      var yAxisAll = chartLayer.selectAll('.tidechart-yaxis').data(['dummy']);
+      var yAxisAll = chartLayer.selectAll('.tidechart-yaxis').data(dummy);
       yAxisAll
         .enter()
         .append('g')
@@ -217,7 +220,7 @@
         .call(yaxis);
 
       // Y軸のラベルを追加
-      var yAxisLabelAll = chartLayer.selectAll('.tidechart-yaxis-label').data(['dummy']);
+      var yAxisLabelAll = chartLayer.selectAll('.tidechart-yaxis-label').data(dummy);
       yAxisLabelAll
         .enter()
         .append('text')
@@ -232,7 +235,7 @@
 
       // X軸に対してグリッド線を引く(Y軸と平行の線)
       if (drawXGrid) {
-        var xGridAll = chartLayer.selectAll('.tidechart-x-grid').data(['dummy']);
+        var xGridAll = chartLayer.selectAll('.tidechart-x-grid').data(dummy);
         xGridAll
           // ENTER領域
           .enter()
@@ -245,7 +248,7 @@
 
       // Y軸に対してグリッド線を引く(X軸と平行の線)
       if (drawYGrid) {
-        var yGridAll = chartLayer.selectAll('.tidechart-y-grid').data(['dummy']);
+        var yGridAll = chartLayer.selectAll('.tidechart-y-grid').data(dummy);
         yGridAll
           // ENTER領域
           .enter()
@@ -263,7 +266,7 @@
       }
 
       // グラフを表示
-      var areaAll = chartLayer.selectAll('.' + CLASS_CHART_AREA).data(['dummy']);
+      var areaAll = chartLayer.selectAll('.' + CLASS_CHART_AREA).data(dummy);
       areaAll
         .enter()
         .append('path')
@@ -273,7 +276,7 @@
         .transition()
         .attr('d', area);
 
-      var lineAll = chartLayer.selectAll('.' + CLASS_CHART_LINE).data(['dummy']);
+      var lineAll = chartLayer.selectAll('.' + CLASS_CHART_LINE).data(dummy);
       lineAll
         .enter()
         .append('path')
@@ -341,7 +344,7 @@
     // 日付け諸々を描画
     function drawDate() {
       // まとめて右寄せする
-      var dateLayerAll = chartLayer.selectAll('.' + CLASS_LABEL_LAYER).data(['dummy']);
+      var dateLayerAll = chartLayer.selectAll('.' + CLASS_LABEL_LAYER).data(dummy);
       var dateLayer = dateLayerAll
         .enter()
         .append('g')
@@ -445,7 +448,7 @@
       var sunsetx = xScale(sunriseScale(sunset)) || 0;
       var sunsetPosition = [[sunsetx, h / 1.8], [sunsetx, h]];
 
-      var sunriseLineAll = chartLayer.selectAll('.' + CLASS_SUNRISE_LINE).data(['dummy']);
+      var sunriseLineAll = chartLayer.selectAll('.' + CLASS_SUNRISE_LINE).data(dummy);
       sunriseLineAll
         .enter()
         .append('path')
@@ -453,7 +456,7 @@
         .merge(sunriseLineAll)
         .attr('d', tline(sunrisePosition));
 
-      var sunsetPathAll = chartLayer.selectAll('.' + CLASS_SUNSET_LINE).data(['dummy']);
+      var sunsetPathAll = chartLayer.selectAll('.' + CLASS_SUNSET_LINE).data(dummy);
       sunsetPathAll
         .enter()
         .append('path')
@@ -503,7 +506,7 @@
 
     // ボタンを表示する
     function drawButton() {
-      var prevButtonContainerAll = baseLayer.selectAll('.tidechart-prev-button-container').data(['dummy']);
+      var prevButtonContainerAll = baseLayer.selectAll('.tidechart-prev-button-container').data(dummy);
       var prevButtonContainer = prevButtonContainerAll
         .enter()
         .append('g')
@@ -513,7 +516,7 @@
         .attr('height', h)
         .attr('transform', 'translate(5,' + (margin.top) + ')');
 
-      var prevButtonAll = prevButtonContainer.selectAll('.tidechart-prev-button').data(['dummy']);
+      var prevButtonAll = prevButtonContainer.selectAll('.tidechart-prev-button').data(dummy);
       prevButtonAll
         .enter()
         .append('rect')
@@ -527,7 +530,7 @@
           onPrev(d3.select(this));
         });
 
-      var nextButtonContainerAll = baseLayer.selectAll('.tidechart-next-button-container').data(['dummy']);
+      var nextButtonContainerAll = baseLayer.selectAll('.tidechart-next-button-container').data(dummy);
       var nextButtonContainer = nextButtonContainerAll
         .enter()
         .append('g')
@@ -537,7 +540,7 @@
         .attr('height', h)
         .attr('transform', 'translate(' + (width - buttonWidth - 5) + ',' + (margin.top) + ')');
 
-      var nextButtonAll = nextButtonContainer.selectAll('.tidechart-next-button').data(['dummy']);
+      var nextButtonAll = nextButtonContainer.selectAll('.tidechart-next-button').data(dummy);
       nextButtonAll
         .enter()
         .append('rect')

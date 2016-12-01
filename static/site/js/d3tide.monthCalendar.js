@@ -22,6 +22,9 @@
     //
     var dm = d3tide.dataManager();
 
+    // ダミーデータ
+    var dummy = ['dummy'];
+
     // カスタムイベント
     var dispatch = d3.dispatch('click', 'offsetChanged');
 
@@ -137,7 +140,7 @@
       }
       if (needsvg) {
         // svgの作成を必要とするなら、新たにsvgを作成して、それをコンテナにする
-        var svgAll = _selection.selectAll('svg').data(['dummy']);
+        var svgAll = _selection.selectAll('svg').data(dummy);
         container = svgAll.enter().append('svg').merge(svgAll).attr('width', width).attr('height', height);
       } else {
         container = _selection;
@@ -146,7 +149,7 @@
       //
       _selection.each(function(_data) {
         // ベースとなるレイヤを作成し、この上にコンテンツを乗せていく
-        var baseLayerAll = container.selectAll('.mc-base-layer').data(['dummy']);
+        var baseLayerAll = container.selectAll('.mc-base-layer').data(dummy);
         baseLayer = baseLayerAll
           .enter()
           .append('g')
@@ -180,7 +183,7 @@
 
     // ラベルを表示する
     function initLabel() {
-      var labelAll = baseLayer.selectAll('.mc-label-g').data(['dummy']);
+      var labelAll = baseLayer.selectAll('.mc-label-g').data(dummy);
       var label = labelAll
         .enter()
         .append('g')
@@ -190,7 +193,7 @@
         .attr('height', labelHeight)
         .attr('transform', 'translate(0,' + (-margin.top) + ')');
 
-      var labelMonthAll = label.selectAll('.mc-label-month').data(['dummy']);
+      var labelMonthAll = label.selectAll('.mc-label-month').data(dummy);
       labelMonth = labelMonthAll
         .enter()
         .append('text')
@@ -200,7 +203,7 @@
         .attr('x', cellWidth / 2)
         .attr('y', labelHeight);
 
-      var labelYearAll = label.selectAll('.mc-label-year').data(['dummy']);
+      var labelYearAll = label.selectAll('.mc-label-year').data(dummy);
       labelYear = labelYearAll
         .enter()
         .append('text')
@@ -220,7 +223,7 @@
 
     // ボタンを表示する
     function initButton() {
-      var prevButtonContainerAll = baseLayer.selectAll('.mc-prev-button-container').data(['dummy']);
+      var prevButtonContainerAll = baseLayer.selectAll('.mc-prev-button-container').data(dummy);
       var prevButtonContainer = prevButtonContainerAll
         .enter()
         .append('g')
@@ -230,7 +233,7 @@
         .attr('height', h)
         .attr('transform', 'translate(' + (-1 * buttonWidth - 5) + ',0)');
 
-      var prevButtonAll = prevButtonContainer.selectAll('.mc-prev-button').data(['dummy']);
+      var prevButtonAll = prevButtonContainer.selectAll('.mc-prev-button').data(dummy);
       prevButtonAll
         .enter()
         .append('rect')
@@ -244,7 +247,7 @@
           onPrev(d3.select(this));
         });
 
-      var nextButtonContainerAll = baseLayer.selectAll('.mc-next-button-container').data(['dummy']);
+      var nextButtonContainerAll = baseLayer.selectAll('.mc-next-button-container').data(dummy);
       var nextButtonContainer = nextButtonContainerAll
         .enter()
         .append('g')
@@ -254,7 +257,7 @@
         .attr('height', h)
         .attr('transform', 'translate(' + (w + 5) + ',0)');
 
-      var nextButtonAll = nextButtonContainer.selectAll('.mc-next-button').data(['dummy']);
+      var nextButtonAll = nextButtonContainer.selectAll('.mc-next-button').data(dummy);
       nextButtonAll
         .enter()
         .append('rect')
@@ -405,7 +408,7 @@
         var chart = minicharts[i];
 
         // セルの中にチャート描画用のコンテナを一つだけ作り、データを紐付けてcall()する
-        var chartContainerAll = d3.select(this).selectAll('.mc-cell-chart').data(['dummy']);
+        var chartContainerAll = d3.select(this).selectAll('.mc-cell-chart').data(dummy);
         chartContainerAll
           .enter()
           .append('g')

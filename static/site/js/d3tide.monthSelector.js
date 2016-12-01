@@ -9,6 +9,9 @@
     // svgを作る必要があるならインスタンス化するときにtrueを渡す
     var needsvg = arguments.length ? _accessor : false;
 
+    // ダミーデータ
+    var dummy = ['dummy'];
+
     // 枠の大きさ
     var width = 900;
     var height = 200;
@@ -81,14 +84,14 @@
     function exports(_selection) {
       // svgの作成を必要とするなら、新たにsvgを作成して、それをコンテナにする
       if (needsvg) {
-        var svgAll = _selection.selectAll('svg').data(['dummy']);
+        var svgAll = _selection.selectAll('svg').data(dummy);
         container = svgAll.enter().append('svg').merge(svgAll).attr('width', width).attr('height', height);
       } else {
         container = _selection;
       }
 
       _selection.each(function(_data) {
-        var baseLayerAll = container.selectAll('.ms-base-layer').data(['dummy']);
+        var baseLayerAll = container.selectAll('.ms-base-layer').data(dummy);
         baseLayer = baseLayerAll
           .enter()
           .append('g')
@@ -98,7 +101,7 @@
           .attr('height', h)
           .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
-        var xaxisGridAll = baseLayer.selectAll('.ms-x-axis-grid').data(['dummy']);
+        var xaxisGridAll = baseLayer.selectAll('.ms-x-axis-grid').data(dummy);
         xaxisGridAll
           .enter()
           .append('g')
@@ -113,7 +116,7 @@
           });
           */
 
-        var xaxisAll = baseLayer.selectAll('.ms-x-axis').data(['dummy']);
+        var xaxisAll = baseLayer.selectAll('.ms-x-axis').data(dummy);
         xaxisAll
           .enter()
           .append('g')
@@ -126,7 +129,7 @@
           .attr('x', 6)
           .attr('y', 6);
 
-        var columnLayerAll = baseLayer.selectAll('.ms-column-layer').data(['dummy']);
+        var columnLayerAll = baseLayer.selectAll('.ms-column-layer').data(dummy);
         var columnLayer = columnLayerAll
           .enter()
           .append('g')

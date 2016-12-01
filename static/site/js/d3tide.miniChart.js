@@ -18,6 +18,9 @@
     var CLASS_CHART_LINE = 'mini-tidechart-line'; // CSSでスタイル指定
     var CLASS_CHART_AREA = 'mini-tidechart-area'; // CSSでスタイル指定
 
+    // ダミーデータ
+    var dummy = ['dummy'];
+
     // 外枠の大きさ(初期値)
     var width = 200;
     var height = 200;
@@ -107,7 +110,7 @@
         setScale();
 
         // コンテナに直接描画するのは気がひけるので、レイヤを１枚追加する
-        var layerAll = container.selectAll('.' + CLASS_CHART_LAYER).data(['dummy']);
+        var layerAll = container.selectAll('.' + CLASS_CHART_LAYER).data(dummy);
         layer = layerAll
           .enter()
           .append('g')
@@ -126,7 +129,7 @@
     // レイヤにチャートを描画する
     function drawChart() {
       // X軸に並行のグリッド線を描画する
-      var yGridAll = layer.selectAll('.mini-tidechart-y-grid').data(['dummy']);
+      var yGridAll = layer.selectAll('.mini-tidechart-y-grid').data(dummy);
       yGridAll
         .enter()
         .append('g')
@@ -136,7 +139,7 @@
 
       // グラフを表示
       if (draw_area) {
-        var areaAll = layer.selectAll('.' + CLASS_CHART_AREA).data(['dummy']);
+        var areaAll = layer.selectAll('.' + CLASS_CHART_AREA).data(dummy);
         areaAll
           .enter()
           .append('path')
@@ -146,7 +149,7 @@
           .attr('d', area);
       }
 
-      var lineAll = layer.selectAll('.' + CLASS_CHART_LINE).data(['dummy']);
+      var lineAll = layer.selectAll('.' + CLASS_CHART_LINE).data(dummy);
       lineAll
         .enter()
         .append('path')
