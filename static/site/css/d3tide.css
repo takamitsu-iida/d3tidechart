@@ -1,0 +1,242 @@
+@charset "UTF-8";
+
+/* リセット開始(ブラウザのデフォルトをあてにしない) */
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+h1,h2,h3,h4,h5,h6,p {
+  margin-bottom: 6pt;
+}
+
+ol,ul,dl {
+  list-style-position: inside;
+}
+
+/* リセット完了 */
+
+/* 標準セレクタ開始 */
+
+body {
+  font: 10pt 'Trebuchet MS', Verdana, Helvetica, Arial, Meiryo, sans-serif;
+  color: #444;
+  background: #fff;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:link,
+a:visited {
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+strong {
+  font-weight: 800;
+  color: #000;
+}
+
+/* 標準セレクタ終了 */
+
+/* monthSelector */
+
+.ms-x-axis-grid .domain {
+  fill: #ddd;
+  stroke: none;
+}
+
+.ms-x-axis .domain,
+.ms-x-axis-grid .tick line {
+  stroke: #fff;
+}
+
+.ms-x-axis-grid .tick-minor line {
+  stroke-opacity: 0.5;
+}
+
+/* tideChart */
+
+.tidechart-xaxis,
+.tidechart-yaxis {
+  font-family: sans-serif;
+  font-size: 16px;
+}
+
+.tidechart-xaxis-label,
+.tidechart-yaxis-label {
+  font-family: sans-serif;
+  font-size: 16px;
+}
+
+.tidechart-area {
+  fill: steelblue;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.tidechart-line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2.0px;
+  pointer-events: none;
+}
+
+.tidechart-y-grid line {
+  stroke: grey;
+  stroke-opacity: 0.5;
+  pointer-events: none;
+}
+
+.tidechart-y-grid path {
+  stroke: none;
+}
+
+.tidechart-sunrise-line,
+.tidechart-sunset-line {
+  fill: none;
+  stroke: #aaa;
+  stroke-width: 1.5px;
+  pointer-events: none;
+}
+
+.tidechart-date-label {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 120px;
+  fill: #ddd;
+  pointer-events: none;
+}
+
+.tidechart-moon-label {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 60px;
+  fill: #ddd;
+  pointer-events: none;
+}
+
+.tidechart-sunrise-label,
+.tidechart-sunset-label {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  fill: #aaa;
+  pointer-events: none;
+}
+
+.tidechart-prev-button,
+.tidechart-next-button {
+  fill: #eee;
+  stroke: none; /* #1f628d; */
+  stroke-width: 0.5px;
+  cursor: pointer;
+}
+
+.tidechart-prev-button:hover,
+.tidechart-next-button:hover {
+  fill:#bbb;
+}
+
+.tidechart-prev-button.mousedown,
+.tidechart-next-button.mousedown {
+  fill:#bbb;
+}
+
+.tidechart-prev-text,
+.tidechart-next-text {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  fill: #888;
+  pointer-events: none;
+}
+
+/* monthCalendar */
+
+.mc-label-month {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 60px;
+  fill: #888;
+}
+
+.mc-label-year {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  fill: #888;
+}
+
+.mc-cell-text {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  fill: #888;
+  pointer-events: none; /* do not handle mouse event */
+}
+
+.mc-prev-button,
+.mc-next-button {
+  fill: #eee;
+  stroke: none; /* #1f628d; */
+  stroke-width: 0.5px;
+  cursor: pointer;
+}
+
+.mc-prev-button:hover,
+.mc-next-button:hover {
+  fill:#bbb;
+}
+
+.mc-prev-button.mousedown,
+.mc-next-button.mousedown {
+  fill:#bbb;
+}
+
+.mc-prev-text,
+.mc-next-text {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  fill: #888;
+  pointer-events: none;
+}
+
+/* miniChart */
+
+.mc-cell-rect {
+  stroke: #777;
+  stroke-width: 0.8px;
+  cursor: pointer;
+  opacity: 1.0;
+}
+.mc-cell-rect:hover {
+  opacity: 0.1;
+}
+
+.mini-tidechart-area {
+  fill: steelblue;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.mini-tidechart-line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2.0px;
+  pointer-events: none;
+}
+
+.mini-tidechart-y-grid line {
+  stroke: grey;
+  stroke-opacity: 0.5;
+  pointer-events: none;
+}
+
+.mini-tidechart-y-grid path {
+  stroke: none;
+}

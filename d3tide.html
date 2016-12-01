@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <!-- IE9以降で正しく機能するようにする -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <title>d3tide</title>
+
+  <!-- d3.js v4をインクルード -->
+  <script src="./static/d3.4.3.0/d3.js"></script>
+
+  <!-- スタイルシート -->
+  <link rel="stylesheet" href="./static/site/css/d3tide.css" type="text/css">
+
+  <!-- d3tideをインクルード -->
+  <script src="./static/site/js/d3tide.startup.js"></script>
+  <script src="./static/site/js/d3tide.dataManager.js"></script>
+  <script src="./static/site/js/d3tide.aburatsubo2016.js"></script>
+  <script src="./static/site/js/d3tide.aburatsubo2017.js"></script>
+  <script src="./static/site/js/d3tide.moon2016.js"></script>
+  <script src="./static/site/js/d3tide.moon2017.js"></script>
+  <script src="./static/site/js/d3tide.sunrise2016.js"></script>
+  <script src="./static/site/js/d3tide.sunrise2017.js"></script>
+  <script src="./static/site/js/d3tide.miniChart.js"></script>
+  <script src="./static/site/js/d3tide.monthCalendar.js"></script>
+  <script src="./static/site/js/d3tide.tideChart.js"></script>
+
+</head>
+
+<body>
+
+  <h1>d3tide</h1>
+
+  <div class="chartContainer">
+    <div id="tideChart"></div>
+  </div>
+
+  <script>
+    d3tide.main();
+  </script>
+
+</body>
+
+</html>

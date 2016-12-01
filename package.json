@@ -1,0 +1,24 @@
+{
+  "name": "d3tidechart",
+  "version": "1.0.0",
+  "description": "国土交通省　気象庁",
+  "main": "d3tide.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/takamitsu-iida/d3tidechart.git"
+  },
+  "author": "Takamitsu IIDA",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/takamitsu-iida/d3tidechart/issues"
+  },
+  "homepage": "https://github.com/takamitsu-iida/d3tidechart#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-uglify": "^2.0.0"
+  }
+}
