@@ -68,8 +68,13 @@ strong {
 
 /* tideChart */
 
-.tidechart-base-layer {
-  user-select: none; /* テキストを選択できないようにする */
+/* テキストを選択できないようにする */
+.tidechart-base-layer text {
+  pointer-events: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .tidechart-xaxis,
@@ -165,7 +170,11 @@ strong {
 
 /* monthCalendar */
 
-.mc-base-layer {
+.mc-base-layer text {
+  pointer-events: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
   user-select: none;
 }
 
