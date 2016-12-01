@@ -1,5 +1,8 @@
 # d3tidechart
 
+油壺における潮汐をグラフ化したものです。
+
+[ライブデモ](https://sites.google.com/site/d3tidedemo/home)
 
 
 ## 出典
