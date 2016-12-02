@@ -12,6 +12,7 @@ module.exports = function (grunt) {
           'static/d3.4.3.0/d3.js',
           'static/site/js/d3tide.startup.js',
           'static/site/js/d3tide.dataManager.js',
+          'static/site/js/d3tide.npButton.js',
           'static/site/js/d3tide.aburatsubo2016.js',
           'static/site/js/d3tide.aburatsubo2017.js',
           'static/site/js/d3tide.moon2016.js',
