@@ -158,24 +158,30 @@
           .attr('height', h)
           .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
-        // ベースレイヤの余白部分にボタンを乗せる
-        if (buttonEnabled) {
-          initButton();
-        }
-
-        // ベースレイヤの余白部分に曜日の表示を乗せる
-        initDayOfTheWeek();
-
-        // ベースレイヤの余白部分にラベルを乗せる
-        drawLabel();
-
-        // ベースレイヤに6x7=42個のセルを乗せて、各セルに日付けや月齢を描画する
-        drawGrid();
-
-        // セルの中に潮汐グラフを描画する
-        drawMiniChart();
+        // 諸々を描画する
+        draw();
         //
       });
+    }
+
+    // Prev Nextボタンを押したときもこれを実行する
+    function draw() {
+      // ベースレイヤの余白部分にボタンを乗せる
+      if (buttonEnabled) {
+        drawPrevNextButton();
+      }
+
+      // ベースレイヤの余白部分に曜日の表示を乗せる
+      drawDayOfTheWeek();
+
+      // ベースレイヤの余白部分にラベルを乗せる
+      drawLabel();
+
+      // ベースレイヤに6x7=42個のセルを乗せて、各セルに日付けや月齢を描画する
+      drawGrid();
+
+      // セルの中に潮汐グラフを描画する
+      drawMiniChart();
     }
 
     // ラベルを表示する
@@ -216,7 +222,7 @@
     var buttonWidth = 40;
 
     // ボタンを表示する
-    function initButton() {
+    function drawPrevNextButton() {
       var prevButtonContainerAll = baseLayer.selectAll('.mc-prev-button-container').data(dummy);
       var prevButtonContainer = prevButtonContainerAll
         .enter()
@@ -288,7 +294,7 @@
     }
 
     // 曜日(Day of The Week)を表示する
-    function initDayOfTheWeek() {
+    function drawDayOfTheWeek() {
       var dtwAll = baseLayer.selectAll('.mc-dtw-g').data([0, 1, 2, 3, 4, 5, 6]);
       dtwAll
         .enter()
@@ -627,17 +633,13 @@
 
     exports.next = function(_) {
       exports.offset(offset + 1);
-      drawLabel();
-      drawGrid();
-      drawMiniChart();
+      draw();
       return this;
     };
 
     exports.prev = function(_) {
       exports.offset(offset - 1);
-      drawLabel();
-      drawGrid();
-      drawMiniChart();
+      draw();
       return this;
     };
 
