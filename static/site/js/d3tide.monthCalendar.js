@@ -41,23 +41,19 @@
       left: 50 // 余白にボタンを配置する
     };
 
-    // ラベルの高さ
-    var labelHeight = 60;
-
-    // ラベルの'text'へのセレクタ
-    var labelYear;
-    var labelMonth;
-
-    // 曜日を表示する部分の高さ
-    var dtwHeight = 30;
-
-    // d3.jsで描画する領域。軸や凡例がはみ出てしまうので、マージンの分だけ小さくしておく。
+    // グリッドを描画する領域
     var w = width - margin.left - margin.right;
     var h = height - margin.top - margin.bottom;
 
     // 6x7グリッドの各セルの幅と高さ
     var cellWidth = w / 7;
     var cellHeight = h / 6;
+
+    // ラベルの高さ
+    var labelHeight = 60;
+
+    // 曜日を表示する部分の高さ
+    var dtwHeight = 30;
 
     // 描画するレイヤ'g'へのセレクタ
     var baseLayer;
@@ -160,7 +156,6 @@
           .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
         // ベースレイヤの余白部分にラベルを乗せる
-        initLabel();
         drawLabel();
 
         // ベースレイヤの余白部分にボタンを乗せる
@@ -182,7 +177,7 @@
     }
 
     // ラベルを表示する
-    function initLabel() {
+    function drawLabel() {
       var labelAll = baseLayer.selectAll('.mc-label-g').data(dummy);
       var label = labelAll
         .enter()
@@ -194,29 +189,26 @@
         .attr('transform', 'translate(0,' + (-margin.top) + ')');
 
       var labelMonthAll = label.selectAll('.mc-label-month').data(dummy);
-      labelMonth = labelMonthAll
+      labelMonthAll
         .enter()
         .append('text')
         .classed('mc-label-month', true)
         .merge(labelMonthAll)
+        .text(monthNames[targetMonth])
         .attr('text-anchor', 'middle')
         .attr('x', cellWidth / 2)
         .attr('y', labelHeight);
 
       var labelYearAll = label.selectAll('.mc-label-year').data(dummy);
-      labelYear = labelYearAll
+      labelYearAll
         .enter()
         .append('text')
         .classed('mc-label-year', true)
         .merge(labelYearAll)
+        .text(targetYear)
         .attr('text-anchor', 'middle')
         .attr('x', cellWidth * 1.5)
         .attr('y', labelHeight);
-    }
-
-    function drawLabel() {
-      labelMonth.text(monthNames[targetMonth]);
-      labelYear.text(targetYear);
     }
 
     var buttonWidth = 40;
@@ -243,7 +235,13 @@
         .attr('y', 0)
         .attr('width', buttonWidth)
         .attr('height', h)
+        .on('mousedown', function() {
+          d3.event.preventDefault();
+          d3.event.stopPropagation();
+        })
         .on('click', function() {
+          d3.event.preventDefault();
+          d3.event.stopPropagation();
           onPrev(d3.select(this));
         });
 
@@ -267,7 +265,13 @@
         .attr('y', 0)
         .attr('width', buttonWidth)
         .attr('height', h)
+        .on('mousedown', function() {
+          d3.event.preventDefault();
+          d3.event.stopPropagation();
+        })
         .on('click', function() {
+          d3.event.preventDefault();
+          d3.event.stopPropagation();
           onNext(d3.select(this));
         });
       //

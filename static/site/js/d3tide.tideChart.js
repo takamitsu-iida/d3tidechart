@@ -526,7 +526,13 @@
         .attr('y', 0)
         .attr('width', buttonWidth)
         .attr('height', h)
+        .on('mousedown', function() {
+          d3.event.preventDefault();
+          d3.event.stopPropagation();
+        })
         .on('click', function() {
+          d3.event.preventDefault();
+          d3.event.stopPropagation();
           onPrev(d3.select(this));
         });
 
@@ -550,7 +556,13 @@
         .attr('y', 0)
         .attr('width', buttonWidth)
         .attr('height', h)
+        .on('mousedown', function() {
+          d3.event.preventDefault();
+          d3.event.stopPropagation();
+        })
         .on('click', function() {
+          d3.event.preventDefault();
+          d3.event.stopPropagation();
           onNext(d3.select(this));
         });
       //

@@ -18,9 +18,6 @@
     var CLASS_CHART_LINE = 'mini-tidechart-line'; // CSSでスタイル指定
     var CLASS_CHART_AREA = 'mini-tidechart-area'; // CSSでスタイル指定
 
-    // ダミーデータ
-    var dummy = ['dummy'];
-
     // 外枠の大きさ(初期値)
     var width = 200;
     var height = 200;
@@ -37,6 +34,9 @@
     // 軸や凡例がはみ出てしまうので、マージンの分だけ小さくしておく。
     var w = width - margin.left - margin.right;
     var h = height - margin.top - margin.bottom;
+
+    // ダミーデータ
+    var dummy = ['dummy'];
 
     // このモジュールをcall()したコンテナへのセレクタ
     var container;
@@ -103,12 +103,6 @@
 
         tideDatas = _data;
 
-        // 受け取った潮汐データで入力ドメインを設定
-        // setDomain(tideDatas);
-
-        // 変更したスケールをパスジェネレータに適用する
-        setScale();
-
         // コンテナに直接描画するのは気がひけるので、レイヤを１枚追加する
         var layerAll = container.selectAll('.' + CLASS_CHART_LAYER).data(dummy);
         layer = layerAll
@@ -119,6 +113,9 @@
           .attr('width', w)
           .attr('height', h)
           .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+
+        // スケールをパスジェネレータに適用する
+        setScale();
 
         // レイヤにチャートを配置する
         drawChart();
@@ -146,6 +143,7 @@
           .classed(CLASS_CHART_AREA, true)
           .merge(areaAll)
           .datum(tideDatas)
+          .transition()
           .attr('d', area);
       }
 
