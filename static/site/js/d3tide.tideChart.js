@@ -132,6 +132,9 @@
           .attr('width', width)
           .attr('height', height);
 
+        // ベースレイヤの左右にボタンを表示
+        initButton();
+
         // チャートを描画するレイヤを追加する
         var chartLayerAll = baseLayer.selectAll('.' + CLASS_CHART_LAYER).data(dummy);
         chartLayer = chartLayerAll
@@ -151,9 +154,6 @@
 
         // レイヤに日付けを表示する
         drawDate();
-
-        // 左右の余白にボタンを表示
-        drawButton();
 
         //
       });
@@ -504,8 +504,8 @@
 
     var buttonWidth = 40;
 
-    // ボタンを表示する
-    function drawButton() {
+    // ベースレイヤの左右にボタンを表示する
+    function initButton() {
       var prevButtonContainerAll = baseLayer.selectAll('.tidechart-prev-button-container').data(dummy);
       var prevButtonContainer = prevButtonContainerAll
         .enter()

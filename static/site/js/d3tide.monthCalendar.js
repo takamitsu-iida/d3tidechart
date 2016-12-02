@@ -155,19 +155,16 @@
           .attr('height', h)
           .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
-        // ベースレイヤの余白部分にラベルを乗せる
-        drawLabel();
-
         // ベースレイヤの余白部分にボタンを乗せる
         initButton();
 
         // ベースレイヤの余白部分に曜日の表示を乗せる
         initDayOfTheWeek();
 
-        // ベースレイヤに6x7=42個のセルを乗せる
-        initGrid();
+        // ベースレイヤの余白部分にラベルを乗せる
+        drawLabel();
 
-        // セルの中に日付けや月齢を描画する
+        // ベースレイヤに6x7=42個のセルを乗せて、各セルに日付けや月齢を描画する
         drawGrid();
 
         // セルの中に潮汐グラフを描画する
@@ -327,7 +324,7 @@
         });
     }
 
-    function initGrid() {
+    function drawGrid() {
       // 座標の配列を紐付けて'g'を6x7=42個作成する
       var cellAll = baseLayer.selectAll('.mc-cell-g').data(cellPositions);
       cell = cellAll
@@ -340,9 +337,7 @@
         .attr('transform', function(d) {
           return 'translate(' + d[0] + ',' + d[1] + ')';
         });
-    }
 
-    function drawGrid() {
       // 各セルの中に'rect'を一つ追加
       cell.each(function(d, i) {
         // 'rect'には座標配列の何番目か、という情報を紐付けておく
