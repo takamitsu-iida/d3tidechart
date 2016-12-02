@@ -49,6 +49,9 @@
     var cellWidth = w / 7;
     var cellHeight = h / 6;
 
+    // 左右にボタンを表示するかどうか
+    var buttonEnabled = true;
+
     // ラベルの高さ
     var labelHeight = 60;
 
@@ -156,7 +159,9 @@
           .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
         // ベースレイヤの余白部分にボタンを乗せる
-        initButton();
+        if (buttonEnabled) {
+          initButton();
+        }
 
         // ベースレイヤの余白部分に曜日の表示を乗せる
         initDayOfTheWeek();

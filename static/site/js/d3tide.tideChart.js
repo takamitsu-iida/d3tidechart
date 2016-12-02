@@ -32,6 +32,9 @@
     var CLASS_DATE_LABEL = 'tidechart-date-label'; // CSSでスタイル指定
     var CLASS_MOON_LABEL = 'tidechart-moon-label'; // CSSでスタイル指定
 
+    // 左右の余白にボタンを配置するか
+    var buttonEnabled = false;
+
     // カスタムイベント
     var dispatch = d3.dispatch('next', 'prev');
 
@@ -133,7 +136,9 @@
           .attr('height', height);
 
         // ベースレイヤの左右にボタンを表示
-        initButton();
+        if (buttonEnabled) {
+          initButton();
+        }
 
         // チャートを描画するレイヤを追加する
         var chartLayerAll = baseLayer.selectAll('.' + CLASS_CHART_LAYER).data(dummy);
@@ -501,7 +506,6 @@
     //
     // 左右の余白部分にボタンを付ける
     //
-
     var buttonWidth = 40;
 
     // ベースレイヤの左右にボタンを表示する

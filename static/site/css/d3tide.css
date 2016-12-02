@@ -259,3 +259,19 @@ strong {
 .mini-tidechart-y-grid path {
   stroke: none;
 }
+
+/* npButton.js */
+
+.d3tide-npbutton-base-layer rect {
+  fill: none;
+  cursor: pointer;
+  pointer-events: all;
+}
+
+.d3tide-npbutton-base-layer path {
+  fill: none;
+  pointer-events: none;
+}
+  .d3tide-npbutton-base-layer:hover path {
+    fill:#bbb;
+  }

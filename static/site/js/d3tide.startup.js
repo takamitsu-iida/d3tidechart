@@ -13,11 +13,15 @@
     // 地図データを取り込む場合、geodata配下にぶら下げる
     var geodata = {};
 
+    // SVGアイコンを取り込む場合、icon配下にぶら下げる
+    var icondata = {};
+
     // 公開するオブジェクト
     return {
       appdata: appdata,
       heredoc: heredoc,
-      geodata: geodata
+      geodata: geodata,
+      icondata: icondata
     };
   })();
   //
@@ -36,36 +40,37 @@
     // 現在表示している日
     var currentDate = new Date();
 
+    //
     // 全体で共有するsvgを一つ作成する
-    var svgAll = container.selectAll('.tidechart-svg').data(['dummy']);
-    var svg = svgAll
-      .enter()
+    //
+
+    var svg = container
       .append('svg')
-      .classed('tidechart-svg', true)
-      .merge(svgAll)
       .attr('x', 0)
       .attr('y', 0)
       .attr('width', 800)
       .attr('height', 1000);
+
+    // NextPrevボタン
+    var np = d3tide.npButton().width(800).height(300);
+    svg
+      .append('g')
+      .call(np);
 
     //
     // d3tide.Chart.js
     //
 
     // コンテナを作成
-    var chartContainerAll = svg.selectAll('.tidechart-chart-container').data(['dummy']);
-    var chartContainer = chartContainerAll
-      .enter()
+    var chartContainer = svg
       .append('g')
-      .classed('tidechart-chart-container', true)
       .attr('width', 800)
-      .attr('height', 300)
-      .merge(chartContainerAll);
+      .attr('height', 300);
 
     // チャートをインスタンス化
     var chart = d3tide.tideChart();
 
-    chart
+    np
       .on('prev', function() {
         var cd = currentDate.getDate();
         currentDate.setDate(cd - 1);
@@ -109,12 +114,8 @@
     //
 
     // カレンダ用のコンテナを作成
-    var mcContainerAll = svg.selectAll('.tidechart-mc-container').data(['dummy']);
-    var mcContainer = mcContainerAll
-      .enter()
+    var mcContainer = svg
       .append('g')
-      .classed('tidechart-mc-container', true)
-      .merge(mcContainerAll)
       .attr('width', 800)
       .attr('height', 600)
       .attr('transform', 'translate(0,300)');
