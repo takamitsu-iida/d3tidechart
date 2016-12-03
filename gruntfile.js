@@ -9,7 +9,7 @@ module.exports = function (grunt) {
       target_js: {
         // 元ファイルの指定
         src: [
-          'static/d3.4.3.0/d3.js',
+          'static/d3.4.4.0/d3.js',
           'static/site/js/d3tide.startup.js',
           'static/site/js/d3tide.dataManager.js',
           'static/site/js/d3tide.npButton.js',
