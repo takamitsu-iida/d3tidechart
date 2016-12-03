@@ -6,16 +6,18 @@
 // NextとPrevのSVGボタンモジュール
 (function() {
   d3tide.npButton = function module() {
-    var CLASS_BASE_LAYER = 'd3tide-npbutton-base-layer';
+    var CLASS_BASE_LAYER = 'd3tide-npbutton-base-layer'; // see CSS
     var CLASS_BUTTON_PREV_RECT = 'd3tide-npbutton-prev-rect';
     var CLASS_BUTTON_NEXT_RECT = 'd3tide-npbutton-next-rect';
     var CLASS_BUTTON_PREV_PATH = 'd3tide-npbutton-prev-path';
     var CLASS_BUTTON_NEXT_PATH = 'd3tide-npbutton-next-path';
 
+    // |>
     var nextPathData = [
       'M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z'
     ];
 
+    // <|
     var prevPathData = [
       'M6 6h2v12H6zm3.5 6l8.5 6V6z'
     ];
@@ -42,9 +44,6 @@
     // ダミーデータ
     var dummy = ['dummy'];
 
-    // rectの角を曲げるときの半径
-    var radius = 3;
-
     // カスタムイベントを登録する
     var dispatch = d3.dispatch('prev', 'next');
 
@@ -69,6 +68,7 @@
         .enter()
         .append('rect')
         .classed(CLASS_BUTTON_PREV_RECT, true)
+        // これ重要。わずかなマウスドラッグで他のHTML DOM要素が選択状態になることを防止する。クリックよりも前！
         .on('mousedown', function() {
           d3.event.preventDefault();
           d3.event.stopPropagation();
@@ -82,9 +82,7 @@
         .attr('x', 0)
         .attr('y', 0)
         .attr('width', buttonWidth)
-        .attr('height', buttonHeight)
-        .attr('rx', radius)
-        .attr('ry', radius);
+        .attr('height', buttonHeight);
 
       var prevPathAll = layer.selectAll('.' + CLASS_BUTTON_PREV_PATH).data(prevPathData);
       prevPathAll
@@ -103,6 +101,7 @@
         .enter()
         .append('rect')
         .classed(CLASS_BUTTON_NEXT_RECT, true)
+        // これ重要。わずかなマウスドラッグで他のHTML DOM要素が選択状態になることを防止する
         .on('mousedown', function() {
           d3.event.preventDefault();
           d3.event.stopPropagation();
@@ -116,9 +115,7 @@
         .attr('x', w - buttonWidth)
         .attr('y', 0)
         .attr('width', buttonWidth)
-        .attr('height', buttonHeight)
-        .attr('rx', radius)
-        .attr('ry', radius);
+        .attr('height', buttonHeight);
 
       var nextPathAll = layer.selectAll('.' + CLASS_BUTTON_NEXT_PATH).data(nextPathData);
       nextPathAll

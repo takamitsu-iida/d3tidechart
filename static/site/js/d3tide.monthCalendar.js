@@ -365,12 +365,25 @@
           .attr('fill', function(d) {
             return getFillColor(d);
           })
+          .on('mouseover', function() {
+            d3.select(this).style('opacity', '0.1');
+          })
+          .on('mouseout', function() {
+            d3.select(this).style('opacity', '1.0');
+          })
+          // これ重要。わずかなマウスドラッグで他のHTML DOM要素が選択状態になることを防止する。クリックよりも前！
+          .on('mousedown', function() {
+            d3.event.preventDefault();
+            d3.event.stopPropagation();
+          })
           .on('click', function(d) {
-            // イベントを発行する
+            d3.event.preventDefault();
+            d3.event.stopPropagation();
             var date = new Date();
             date.setYear(targetYear);
             date.setMonth(targetMonth + days[d].offset); // offsetは前月だと-1、翌月だと+1
             date.setDate(days[d].day);
+            // イベントを発行する
             dispatch.call('click', this, date);
           });
       });

@@ -233,9 +233,11 @@ strong {
   cursor: pointer;
   opacity: 1.0;
 }
-.mc-cell-rect:hover {
-  opacity: 0.1;
-}
+  /*
+  .mc-cell-rect:hover {
+    opacity: 0.1;
+  }
+  */
 
 .mini-tidechart-area {
   fill: steelblue;
