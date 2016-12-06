@@ -6,7 +6,9 @@
 // NextとPrevのSVGボタンモジュール
 (function() {
   d3tide.npButton = function module() {
-    var CLASS_BASE_LAYER = 'd3tide-npbutton-base-layer'; // see CSS
+    var CLASS_BASE_LAYER = 'd3tide-npbutton-base-layer';
+    var CLASS_PREV_LAYER = 'd3tide-npbutton-prev-layer'; // CSS参照
+    var CLASS_NEXT_LAYER = 'd3tide-npbutton-next-layer'; // CSS参照
     var CLASS_BUTTON_PREV_RECT = 'd3tide-npbutton-prev-rect';
     var CLASS_BUTTON_NEXT_RECT = 'd3tide-npbutton-next-rect';
     var CLASS_BUTTON_PREV_PATH = 'd3tide-npbutton-prev-path';
@@ -42,7 +44,7 @@
     var buttonHeight = h;
 
     // ダミーデータ
-    var dummy = ['dummy'];
+    var dummy = [0];
 
     // カスタムイベントを登録する
     var dispatch = d3.dispatch('prev', 'next');
@@ -50,28 +52,41 @@
     // 公開関数
     // call()されたときに呼ばれる公開関数
     function exports(_selection) {
-      // 'rect'を配置するためのレイヤ'g'を作成する
-      var layerAll = _selection.selectAll('.' + CLASS_BASE_LAYER).data(dummy);
-      var layer = layerAll
+      // 最下層のレイヤ'g'を作成する
+      var baseLayerAll = _selection.selectAll('.' + CLASS_BASE_LAYER).data(dummy);
+      var baseLayer = baseLayerAll
         .enter()
         .append('g')
         .classed(CLASS_BASE_LAYER, true)
-        .merge(layerAll)
+        .merge(baseLayerAll)
         .attr('x', 0)
         .attr('y', 0)
         .attr('width', w)
         .attr('height', h);
 
+      // Prevボタンを配置するレイヤ'g'を作成する
+      var prevLayerALl = baseLayer.selectAll('.' + CLASS_PREV_LAYER).data(dummy);
+      var prevLayer = prevLayerALl
+        .enter()
+        .append('g')
+        .classed(CLASS_PREV_LAYER, true)
+        .merge(prevLayerALl);
+
       // Prevボタンになる'rectを作成する
-      var prevRectAll = layer.selectAll('.' + CLASS_BUTTON_PREV_RECT).data(dummy);
+      var prevRectAll = prevLayer.selectAll('.' + CLASS_BUTTON_PREV_RECT).data(dummy);
       prevRectAll
         .enter()
         .append('rect')
         .classed(CLASS_BUTTON_PREV_RECT, true)
-        // これ重要。わずかなマウスドラッグで他のHTML DOM要素が選択状態になることを防止する。クリックよりも前！
         .on('mousedown', function() {
+          // これ重要。わずかなマウスドラッグで他のHTML DOM要素が選択状態になることを防止する。クリックよりも前！
           d3.event.preventDefault();
           d3.event.stopPropagation();
+          // マウスダウンした瞬間だけ色を変える
+          prevLayer.classed('mousedown', true);
+          d3.select(window).on('mouseup', function() {
+            prevLayer.classed('mousedown', false);
+          });
         })
         .on('click', function(d) {
           d3.event.preventDefault();
@@ -84,7 +99,7 @@
         .attr('width', buttonWidth)
         .attr('height', buttonHeight);
 
-      var prevPathAll = layer.selectAll('.' + CLASS_BUTTON_PREV_PATH).data(prevPathData);
+      var prevPathAll = prevLayer.selectAll('.' + CLASS_BUTTON_PREV_PATH).data(prevPathData);
       prevPathAll
         .enter()
         .append('path')
@@ -95,16 +110,32 @@
           return d;
         });
 
+      // Nextボタンを配置するレイヤ'g'を作成する
+      var nextLayerALl = baseLayer.selectAll('.' + CLASS_NEXT_LAYER).data(dummy);
+      var nextLayer = nextLayerALl
+        .enter()
+        .append('g')
+        .classed(CLASS_NEXT_LAYER, true)
+        .merge(nextLayerALl)
+        .attr('width', buttonWidth)
+        .attr('height', buttonHeight)
+        .attr('transform', 'translate(' + (w - buttonWidth) + ',0)');
+
       // Nextボタンになる'rectを作成する
-      var nextRectAll = layer.selectAll('.' + CLASS_BUTTON_NEXT_RECT).data(dummy);
+      var nextRectAll = nextLayer.selectAll('.' + CLASS_BUTTON_NEXT_RECT).data(dummy);
       nextRectAll
         .enter()
         .append('rect')
         .classed(CLASS_BUTTON_NEXT_RECT, true)
-        // これ重要。わずかなマウスドラッグで他のHTML DOM要素が選択状態になることを防止する
         .on('mousedown', function() {
+          // これ重要。わずかなマウスドラッグで他のHTML DOM要素が選択状態になることを防止する
           d3.event.preventDefault();
           d3.event.stopPropagation();
+          // マウスダウンした瞬間だけ色を変える
+          nextLayer.classed('mousedown', true);
+          d3.select(window).on('mouseup', function() {
+            nextLayer.classed('mousedown', false);
+          });
         })
         .on('click', function(d) {
           d3.event.preventDefault();
@@ -112,18 +143,18 @@
           dispatch.call('next', this, d);
         })
         .merge(nextRectAll)
-        .attr('x', w - buttonWidth)
+        .attr('x', 0)
         .attr('y', 0)
         .attr('width', buttonWidth)
         .attr('height', buttonHeight);
 
-      var nextPathAll = layer.selectAll('.' + CLASS_BUTTON_NEXT_PATH).data(nextPathData);
+      var nextPathAll = nextLayer.selectAll('.' + CLASS_BUTTON_NEXT_PATH).data(nextPathData);
       nextPathAll
         .enter()
         .append('path')
         .classed(CLASS_BUTTON_NEXT_PATH, true)
         .merge(nextPathAll)
-        .attr('transform', 'translate(' + (w - 70) + ',' + (buttonHeight / 2 - 50) + ')scale(4.0)')
+        .attr('transform', 'translate(' + (buttonWidth - 70) + ',' + (buttonHeight / 2 - 50) + ')scale(4.0)')
         .attr('d', function(d) {
           return d;
         });
