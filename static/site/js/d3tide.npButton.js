@@ -14,14 +14,17 @@
     var CLASS_BUTTON_PREV_PATH = 'd3tide-npbutton-prev-path';
     var CLASS_BUTTON_NEXT_PATH = 'd3tide-npbutton-next-path';
 
-    // |>
+    // 12x12で作成したNextとPrevのアイコン
+    // これをscale(4.0)で4倍にトランスフォームして使うと48x48になる
+
+    // >|
     var nextPathData = [
-      'M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z'
+      'M0,0v12l8.5-6L0,0zM10,0v12h2v-12h-2z'
     ];
 
-    // <|
+    // |<
     var prevPathData = [
-      'M6 6h2v12H6zm3.5 6l8.5 6V6z'
+      'M0,0h2v12H0zM3.5,6l8.5,6V0z'
     ];
 
     // 外枠の大きさ(初期値)
@@ -105,10 +108,10 @@
         .append('path')
         .classed(CLASS_BUTTON_PREV_PATH, true)
         .merge(prevPathAll)
-        .attr('transform', 'translate(0,' + (buttonHeight / 2 - 50) + ')scale(4.0)')
         .attr('d', function(d) {
           return d;
-        });
+        })
+        .attr('transform', 'translate(10,' + (buttonHeight / 2 - 24) + ')scale(4.0)');
 
       // Nextボタンを配置するレイヤ'g'を作成する
       var nextLayerALl = baseLayer.selectAll('.' + CLASS_NEXT_LAYER).data(dummy);
@@ -154,11 +157,10 @@
         .append('path')
         .classed(CLASS_BUTTON_NEXT_PATH, true)
         .merge(nextPathAll)
-        .attr('transform', 'translate(' + (buttonWidth - 70) + ',' + (buttonHeight / 2 - 50) + ')scale(4.0)')
         .attr('d', function(d) {
           return d;
-        });
-
+        })
+        .attr('transform', 'translate(' + (buttonWidth - 48 - 10) + ',' + (buttonHeight / 2 - 24) + ')scale(4.0)');
       //
     }
 

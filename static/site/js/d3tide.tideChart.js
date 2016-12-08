@@ -39,7 +39,7 @@
     var dispatch = d3.dispatch('next', 'prev');
 
     // ダミーデータ
-    var dummy = ['dummy'];
+    var dummy = [0];
 
     // 外枠の大きさ(初期値)
     var width = 800;

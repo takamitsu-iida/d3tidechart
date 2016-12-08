@@ -23,7 +23,7 @@
     var dm = d3tide.dataManager();
 
     // ダミーデータ
-    var dummy = ['dummy'];
+    var dummy = [0];
 
     // カスタムイベント
     var dispatch = d3.dispatch('click', 'offsetChanged');

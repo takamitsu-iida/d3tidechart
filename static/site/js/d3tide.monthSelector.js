@@ -10,7 +10,7 @@
     var needsvg = arguments.length ? _accessor : false;
 
     // ダミーデータ
-    var dummy = ['dummy'];
+    var dummy = [0];
 
     // 枠の大きさ
     var width = 900;

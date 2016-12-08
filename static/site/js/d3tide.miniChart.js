@@ -36,7 +36,7 @@
     var h = height - margin.top - margin.bottom;
 
     // ダミーデータ
-    var dummy = ['dummy'];
+    var dummy = [0];
 
     // このモジュールをcall()したコンテナへのセレクタ
     var container;
