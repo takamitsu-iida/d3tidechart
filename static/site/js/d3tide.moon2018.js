@@ -5,7 +5,7 @@
 // d3tide.dataManager.js
 
 // こよみのページ
-// http://koyomi8.com/
+// http://koyomi.vis.ne.jp/
 
 // 月齢(こよみ式)
 // 2018年

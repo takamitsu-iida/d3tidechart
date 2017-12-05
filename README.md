@@ -17,7 +17,7 @@ http://www.data.jma.go.jp/kaiyou/db/tide/suisan/index.php
 
 こよみのページ
 
-http://koyomi8.com/
+http://koyomi.vis.ne.jp/
 
 ### 日の出・日の入
 
