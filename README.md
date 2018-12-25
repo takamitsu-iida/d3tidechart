@@ -2,8 +2,9 @@
 
 油壺における潮汐をグラフ化したものです。
 
-[ライブデモ](https://sites.google.com/site/d3tidedemo/home)
+[ライブデモ Google Sites](https://sites.google.com/site/d3tidedemo/home)
 
+[ライブデモ Github Pages](https://takamitsu-iida.github.io/d3tidechart/)
 
 ## 出典
 
