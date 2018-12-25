@@ -25,3 +25,14 @@ http://koyomi.vis.ne.jp/
 
 http://eco.mtk.nao.ac.jp/koyomi/dni/
 
+<!--
+
+1. static/site/jsフォルダを毎年更新する。
+
+2. gruntfile.jsを編集してgruntすることで配布用のjsファイルを作成する。
+
+3. static/site/dist以下をGoogle Siteにアップロードする
+
+4. static/site/dist以下をdocsにコピーしてgithubに上げる(Github Pagesが更新される)
+
+-->
