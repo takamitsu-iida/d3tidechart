@@ -8,7 +8,7 @@
 // 日の出・日の入
 // http://eco.mtk.nao.ac.jp/koyomi/dni/
 
-// 20XX年
+// 2018年
 
 (function() {
   var lines = [
