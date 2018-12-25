@@ -1,3 +1,14 @@
+
+// gruntコマンドを使えるようにインストールする
+// npm install -g grunt-cli
+
+// プロジェクトでgruntを使える湯にする
+// npm install grunt --save-dev
+// npm install grunt-contrib-uglify
+// npm install grunt-contrib-concat
+
+// grunt
+
 module.exports = function (grunt) {
   var pkg = grunt.file.readJSON('package.json');
 
@@ -13,12 +24,12 @@ module.exports = function (grunt) {
           'static/site/js/d3tide.startup.js',
           'static/site/js/d3tide.dataManager.js',
           'static/site/js/d3tide.npButton.js',
-          'static/site/js/d3tide.aburatsubo2017.js',
           'static/site/js/d3tide.aburatsubo2018.js',
-          'static/site/js/d3tide.moon2017.js',
+          'static/site/js/d3tide.aburatsubo2019.js',
           'static/site/js/d3tide.moon2018.js',
-          'static/site/js/d3tide.sunrise2017.js',
+          'static/site/js/d3tide.moon2019.js',
           'static/site/js/d3tide.sunrise2018.js',
+          'static/site/js/d3tide.sunrise2019.js',
           'static/site/js/d3tide.miniChart.js',
           'static/site/js/d3tide.monthCalendar.js',
           'static/site/js/d3tide.tideChart.js'
