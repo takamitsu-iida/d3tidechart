@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<!--
+github pages用のindex.html
+site/dist以下をコピーして使う。
+-->
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <!-- IE9以降で正しく機能するようにする -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <title>d3tide</title>
+
+  <!-- スタイルシート -->
+  <link rel="stylesheet" href="./d3tide.css" type="text/css">
+
+  <!-- d3tideをインクルード -->
+  <script type="text/javascript" src='./d3tide-min.js'></script>
+
+</head>
+
+<body>
+
+  <h1>d3tide</h1>
+
+  <div class="chartContainer">
+    <div id="tideChart"></div>
+  </div>
+
+  <script>
+    d3tide.main();
+  </script>
+
+</body>
+
+</html>
