@@ -1,6 +1,9 @@
 # フォルダ単位で無視
 # data/
 
+# github pagesの設定情報
+_config.yml
+
 #
 # 以下、giboによる自動生成
 #
