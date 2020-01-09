@@ -2,7 +2,7 @@
 
 油壺における潮汐をグラフ化したものです。
 
-[ライブデモ Google Sites](https://sites.google.com/site/d3tidedemo/home)
+<!-- [ライブデモ Google Sites](https://sites.google.com/site/d3tidedemo/home) -->
 
 [ライブデモ Github Pages](https://takamitsu-iida.github.io/d3tidechart/)
 
@@ -30,7 +30,7 @@
 
 1. static/site/jsフォルダを毎年更新する。
 
-2. gruntfile.jsを編集してgruntすることで配布用のjsファイルを作成する。
+2. gruntfile.jsを編集してgruntコマンドを走らせることで配布用のjsファイルを作成する。
 
 3. static/site/dist以下をGoogle Siteにアップロードする
 
