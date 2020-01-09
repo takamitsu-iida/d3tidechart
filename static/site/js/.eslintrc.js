@@ -1,6 +1,6 @@
 module.exports = {
   "extends": "google",
-  "installedESLint": true,
+  // "installedESLint": true,
   "env": {
     "browser": true,
   },
