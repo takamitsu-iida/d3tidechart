@@ -18976,7 +18976,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 // ',
 // 最終行の,を削除
 
-// 20XX年
+// 2022年
 
 (function () {
   var lines = [
