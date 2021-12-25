@@ -10,7 +10,7 @@
 // 月齢(こよみ式)
 // 2022年
 
-(function() {
+(function () {
   var year = 2022;
   var lines = [
     "1/1,中潮",
