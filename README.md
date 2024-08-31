@@ -18,7 +18,9 @@
 
 こよみのページ
 
-<http://koyomi.vis.ne.jp/>
+~~<http://koyomi.vis.ne.jp/>~~
+
+<https://koyomi8.com/>
 
 ### 日の出・日の入
 
