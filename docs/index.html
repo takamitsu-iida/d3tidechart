@@ -33,7 +33,9 @@ site/dist以下をコピーして使う。
 </body>
 
 <script>
-  d3tide.main();
+  window.addEventListener("load", () => {
+    d3tide.main();
+  });
 </script>
 
 </html>
