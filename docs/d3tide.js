@@ -16666,8 +16666,12 @@ Object.defineProperty(exports, '__esModule', { value: true });
           continue;
         }
 
-        var date = arr[0];
-        var moon = arr[1];
+        var date = arr[0].trim();
+        if (date.startsWith('0')) {
+          date = date.slice(1);
+        }
+
+        var moon = arr[1].trim();
 
         // 2016/1/1
         date = year + '/' + date;
