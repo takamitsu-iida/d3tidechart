@@ -4,15 +4,21 @@
 
 <!-- [ライブデモ Google Sites](https://sites.google.com/site/d3tidedemo/home) -->
 
-[ライブデモ Github Pages](https://takamitsu-iida.github.io/d3tidechart/)
+[ライブデモ Github Pages](https://takamitsu-iida.github.io/d3tidechart/d3tide.html)
+
+<br>
 
 ## 出典
+
+<br>
 
 ### 潮位データ
 
 国土交通省　気象庁
 
 <http://www.data.jma.go.jp/kaiyou/db/tide/suisan/index.php>
+
+<br>
 
 ### 月齢
 
@@ -21,6 +27,8 @@
 ~~<http://koyomi.vis.ne.jp/>~~
 
 <https://koyomi8.com/>
+
+<br>
 
 ### 日の出・日の入
 
