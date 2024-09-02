@@ -4,7 +4,7 @@
 
 <!-- [ライブデモ Google Sites](https://sites.google.com/site/d3tidedemo/home) -->
 
-[ライブデモ Github Pages](https://takamitsu-iida.github.io/d3tidechart/d3tide.html)
+[ライブデモ Github Pages](https://takamitsu-iida.github.io/d3tidechart/)
 
 <br>
 
