@@ -135,15 +135,22 @@
           continue;
         }
 
-        var date = arr[0].trim();
-        if (date.startsWith('0')) {
-          date = date.slice(1);
+        // 01/01
+        var month_and_day = arr[0].split('/');
+        var month = month_and_day[0].trim();
+        var day = month_and_day[1].trim();
+
+        if (month.startsWith('0')) {
+          month = month.slice(1);
+        }
+        if (day.startsWith('0')) {
+          day = day.slice(1);
         }
 
         var moon = arr[1].trim();
 
         // 2016/1/1
-        date = year + '/' + date;
+        var date = year + '/' + month + '/' + day;
 
         data[date] = moon;
       }
