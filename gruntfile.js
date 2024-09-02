@@ -25,6 +25,7 @@ module.exports = function (grunt) {
           'static/site/js/d3tide.dataManager.js',
           'static/site/js/d3tide.npButton.js',
           'static/site/js/d3tide.aburatsubo2024.js',
+          'static/site/js/d3tide.moon2023.js',
           'static/site/js/d3tide.moon2024.js',
           'static/site/js/d3tide.moon2025.js',
           'static/site/js/d3tide.sunrise2024.js',
