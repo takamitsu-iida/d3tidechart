@@ -28,6 +28,7 @@ body {
   font: 10pt 'Trebuchet MS', Verdana, Helvetica, Arial, Meiryo, sans-serif;
   color: #444;
   background: #fff;
+  margin: 16px;
 }
 
 a {
